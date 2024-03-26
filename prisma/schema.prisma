@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model account {
+  account_id        Int          @id @default(autoincrement())
+  account_firstname String       @db.VarChar
+  account_lastname  String       @db.VarChar
+  account_email     String       @db.VarChar
+  account_password  String       @db.VarChar
+  account_type      account_type @default(Client)
+}
+
+model blog {
+  blog_id        Int            @id @default(autoincrement())
+  blog_title     String         @db.VarChar
+  blog_content   String
+  blog_created   DateTime       @default(now()) @db.Timestamptz(6)
+  blog_thumbnail String         @db.VarChar
+  blog_keyword   blog_keyword[]
+}
+
+model blog_keyword {
+  blog_id    Int
+  keyword_id Int
+  blog       blog    @relation(fields: [blog_id], references: [blog_id], onDelete: NoAction, onUpdate: NoAction, map: "fk_blog")
+  keyword    keyword @relation(fields: [keyword_id], references: [keyword_id], onDelete: NoAction, onUpdate: NoAction, map: "fk_keyword")
+
+  @@id([blog_id, keyword_id])
+}
+
+model keyword {
+  keyword_id   Int            @id @default(autoincrement())
+  keyword      String         @db.VarChar
+  blog_keyword blog_keyword[]
+}
+
+enum account_type {
+  Client
+  Employee
+  Admin
+}

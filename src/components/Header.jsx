@@ -39,10 +39,10 @@ export default function Header() {
           <Link href="../app/courses"><li>Courses</li></Link>
         </ul>
         <ul className="links-desktop">
-          <Link href="../app/"><li>Home</li></Link>
-          <Link href="../app/blog"><li>Blog</li></Link>
-          <Link href="../app/lifecoaching"><li>Life coaching</li></Link>
-          <Link href="../app/courses"><li>Courses</li></Link>
+          <Link href="../"><li>Home</li></Link>
+          <Link href="../blog"><li>Blog</li></Link>
+          <Link href="../lifecoaching"><li>Life coaching</li></Link>
+          <Link href="../courses"><li>Courses</li></Link>
           <a id="dropdown-link" href="../app/affiliate">
             <li>
               <button className="dropdown">
