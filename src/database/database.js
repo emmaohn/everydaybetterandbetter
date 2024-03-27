@@ -13,7 +13,16 @@ async function main() {
 }
 
 export async function getAllBlogs() {
-  const blogs = await prisma.blog.findMany();
+  const blogs = await prisma.blog.findMany({
+    orderBy: { blog_created: 'desc' }
+  });
+  return blogs;
+}
+
+export async function getAllKeywords() {
+  const blogs = await prisma.keyword.findMany({
+    orderBy: { keyword: 'desc' }
+  });
   return blogs;
 }
 
