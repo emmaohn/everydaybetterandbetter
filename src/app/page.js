@@ -1,11 +1,10 @@
-import styles from "./page.module.css";
 import CallToAction from "@/components/CallToAction";
 import Qualification from "/src/components/Qualification";
 import Why from "/src/components/Why";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main>
       <div className="cta-parent-grid">
         <div className="cta-text">
           <div className="cta-text-small">
