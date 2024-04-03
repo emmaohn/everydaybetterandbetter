@@ -26,6 +26,13 @@ export async function getAllKeywords() {
   return blogs;
 }
 
+export async function getBlogById(blogId) {
+  const blog = await prisma.keyword.findUnique({
+    where: { blog_id: blogId }
+  });
+  return blog;
+}
+
 // NOTES
 
   // CREATE

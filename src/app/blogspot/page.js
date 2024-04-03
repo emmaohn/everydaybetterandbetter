@@ -1,4 +1,3 @@
-// 'use client'
 // import { useEffect, useState } from "react";
 import { DateTime } from 'luxon';
 import { getAllBlogs, getAllKeywords } from "@/database/database";
@@ -10,16 +9,19 @@ export default async function BlogSpot() {
 
   return (
     <div className='blogspot'>
-      <i id="blogspot-filter" className="blogspot-filter fa-solid fa-sliders"></i>
+      <i id="blogspotFilter" className="blogspot-filter fa-solid fa-sliders"></i>
       <div className="blogspot-grid">
         <div className='blogspot-blogs'>
           {blogs.map(blog => {
-            let newDate = new DateTime(blog.blog_created);
+            let newDate = new Date(blog.blog_created);
+            let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            let date = `${months[newDate.getMonth() - 1]} ${newDate.getDate()}, ${newDate.getFullYear()}`;
             return (<BlogCard 
               key={blog}
+              blogID={blog.blog_id}
               imgPath={blog.blog_thumbnail}
               title={blog.blog_title}
-              created={newDate.toLocaleString(DateTime.DATE_MED)}
+              created={date}
               content={blog.blog_content}
             />)
             })

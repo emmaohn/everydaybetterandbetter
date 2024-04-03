@@ -23,12 +23,15 @@ export default function Header() {
   
   return (
     <header>
-      <Image 
-        src="/edbab-header-logo.svg" 
-        alt="Everyday Better and Better Logo" 
-        width="100"
-        height="100"
-      />
+      <a href="../">
+        <Image 
+          src="/edbab-header-logo.svg" 
+          alt="Everyday Better and Better Logo" 
+          width="100"
+          height="100"
+          className="header-logo"
+        />
+      </a>
       
       <nav>
         <i className="hamburger fa-solid fa-bars" id="hamburger" onClick={() => setHamMenuShowing(!hamMenuShowing)}></i>
@@ -50,9 +53,9 @@ export default function Header() {
             </li>
           </a>
           <div className="dropdown-content">
-            <Link href="../blog/">Link 1</Link>
-            <Link href="../blog/">Link 2</Link>
-            <Link href="../blog/">Link 3</Link>
+            <Link href="../">Link 1</Link>
+            <Link href="../">Link 2</Link>
+            <Link href="../">Link 3</Link>
           </div>
         </ul>
       </nav>

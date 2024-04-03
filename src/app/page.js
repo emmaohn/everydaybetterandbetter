@@ -55,21 +55,28 @@ export default function Home() {
       </section>
       <div className="qual-picture-grid">
         <div className="qual-grid">
+          {/* development since 1990 */}
           <Qualification 
-            number="31"
+            number="1990"
             content="Years of Personal Development"
+            doesIncrement="true"
           />
+          {/* studying since 2006 */}
           <Qualification 
-            number="15"
+            number="2006"
             content="Years Studying Light Work"
+            doesIncrement="true"
           />
+          {/* coaching since 2009 */}
           <Qualification 
-            number="13"
+            number="2009"
             content="Years Coaching"
+            doesIncrement="true"
           />
           <Qualification 
-            number="5"
+            number="6"
             content="Healing Modalities"
+            doesIncrement="false"
           />
         </div>
         <picture className="qual-field-picture">
