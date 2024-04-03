@@ -2,8 +2,8 @@
 // import { useEffect, useState } from "react";
 // import { DateTime } from 'luxon';
 // import { getBlogById } from "@/database/database";
-import SingleBlog from "@/components/Blog";
-import { useParams } from "next/navigation";
+// import SingleBlog from "@/components/Blog";
+// import { useParams } from "next/navigation";
 
 // export async function getServerSideProps(context) {
 //   const id = context.query.id;
@@ -12,14 +12,14 @@ import { useParams } from "next/navigation";
 
 export default async function Blog() {
   // let blog = await getBlogById(blogId);
-  const params = useParams()
-  console.log(params)
-  
+  // const params = useParams()
+  // console.log(params)
+
   return (
     <article>
-      <SingleBlog>
+      {/* <SingleBlog>
         blogId={id}
-      </SingleBlog>
+      </SingleBlog> */}
     </article>
   )
 }

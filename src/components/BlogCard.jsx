@@ -1,7 +1,7 @@
 
 export default function BlogCard({ blogId, imgPath, title, created, content }) {
   return (
-    <a className="blog-card" href={`/blog/{blogId}`}>
+    <a className="blog-card" href=""> 
       <img className="blog-card-image" src={imgPath} alt={title} />
       <div>
         <p className="blog-card-title">{title}</p>
@@ -12,3 +12,4 @@ export default function BlogCard({ blogId, imgPath, title, created, content }) {
   )
 };
 
+// {`/blog/${blogId}`}

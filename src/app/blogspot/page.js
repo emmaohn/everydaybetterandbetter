@@ -1,5 +1,5 @@
 // import { useEffect, useState } from "react";
-import { DateTime } from 'luxon';
+// import { DateTime } from 'luxon';
 import { getAllBlogs, getAllKeywords } from "@/database/database";
 import BlogCard from '@/components/BlogCard';
 
@@ -18,7 +18,7 @@ export default async function BlogSpot() {
             let date = `${months[newDate.getMonth() - 1]} ${newDate.getDate()}, ${newDate.getFullYear()}`;
             return (<BlogCard 
               key={blog}
-              blogID={blog.blog_id}
+              blogId={blog.blog_id}
               imgPath={blog.blog_thumbnail}
               title={blog.blog_title}
               created={date}

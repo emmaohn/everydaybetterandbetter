@@ -1,14 +1,14 @@
-import { getBlogById } from "@/database/database"
+// import { getBlogById } from "@/database/database"
 
-export default async function SingleBlog({ blogId }) {
-  let blog = await getBlogById(blogId);
+export default function SingleBlog() {
+  // let blog = await getBlogById(blogId);
   return (
     <div className="blog">
       <div>
-        <p className="blog-title">{blog.blog_title}</p>
-        <p className="blog-created">{blog.blog_created}</p>
+        <p className="blog-title">{title}</p>
+        <p className="blog-created">{created}</p>
       </div>
-      <p className="blog-content">{blog.blog_content}</p>
+      <p className="blog-content">{content}</p>
     </div>
   )
 };
