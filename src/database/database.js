@@ -11,7 +11,7 @@ export async function getAllBlogs() {
     include: {
       blog_keyword: true,
     },
-    where: { blog_is_published: true },
+    // where: { blog_is_published: true },
     orderBy: { blog_created: 'desc' }
   });
   return blogs;
