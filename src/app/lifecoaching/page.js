@@ -1,8 +1,7 @@
 export default function LifeCoaching() {
   return (
-    <main>
-      <p>this is the life coaching page</p>
-      
-    </main>
+    <div>
+      <h2 className="coming-soon">Coaching session scheduler coming soon!</h2>
+    </div>
   );
 }

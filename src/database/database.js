@@ -27,7 +27,7 @@ export async function getAllKeywords() {
 }
 
 export async function getBlogById(blogId) {
-  const blog = await prisma.keyword.findUnique({
+  const blog = await prisma.blog.findUnique({
     where: { blog_id: blogId }
   });
   return blog;

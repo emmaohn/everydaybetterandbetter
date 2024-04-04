@@ -1,8 +1,7 @@
 export default function Courses() {
   return (
-    <main>
-      <p>this is the course page</p>
-      
-    </main>
+    <div>
+      <h2 className="coming-soon">Courses coming soon!</h2>
+    </div>
   );
 }

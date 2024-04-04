@@ -1,5 +1,6 @@
+// 'use client'
 // import { useEffect, useState } from "react";
-// import { DateTime } from 'luxon';
+import { DateTime } from 'luxon';
 import { getAllBlogs, getAllKeywords } from "@/database/database";
 import BlogCard from '@/components/BlogCard';
 
@@ -7,15 +8,21 @@ export default async function BlogSpot() {
   let blogs = await getAllBlogs();
   let keywords = await getAllKeywords();
 
+  // async function onSubmit(e) {
+  //   e.preventDefault()
+  // }
+
   return (
     <div className='blogspot'>
-      <i id="blogspotFilter" className="blogspot-filter fa-solid fa-sliders"></i>
+      <div className="blogspot-filter">
+        <i id="blogspotFilter" className="fa-solid fa-sliders"></i>
+      </div>
       <div className="blogspot-grid">
         <div className='blogspot-blogs'>
           {blogs.map(blog => {
-            let newDate = new Date(blog.blog_created);
-            let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            let date = `${months[newDate.getMonth() - 1]} ${newDate.getDate()}, ${newDate.getFullYear()}`;
+            let date = DateTime.fromJSDate(blog.blog_created);
+            date = date.toLocaleString(DateTime.DATE_MED)
+
             return (<BlogCard 
               key={blog}
               blogId={blog.blog_id}
@@ -28,10 +35,16 @@ export default async function BlogSpot() {
           }
         </div>
         <div className='blogspot-keywords'>
-          {keywords.map(keyword => {
-            return (<h3 key={keyword}>{keyword.keyword}</h3>)
-            })
-          }
+          {/* <form onSubmit={onSubmit}> */}
+            {keywords.map(keyword => {
+              return (
+                <div className='keyword' key={keyword}>
+                  <input className='keyword-input' name="keyword" type='checkbox'/>
+                  <label className='keyword-label' htmlFor="keyword">{keyword.keyword}</label>
+                </div>
+              ) 
+            })}
+          {/* </form> */}
         </div>
       </div>
     </div>

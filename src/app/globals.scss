@@ -140,6 +140,12 @@ button {
   font-style: italic;
 }
 
+// styles for pages coming soon
+.coming-soon {
+  font-weight: 400;
+  margin: 1em;
+}
+
 // HEADER
 header {
   background-color: var(--navy);
@@ -611,24 +617,55 @@ header {
 // blogspot styles
 .blogspot {
   &-grid {
-    @include tablet-break {
+    @include custom-break(800px) {
       display: grid;
-      grid-template-columns: 80% 20%;
+      grid-template-columns: 70% 30%;
     }
   }
   &-keywords {
     display: none;
-    @include tablet-break {
+    margin: 2em;
+
+    @include custom-break(800px) {
       display: block;
       position: sticky;
     }
   }
   &-filter {
+    display: flex;
     font-size: 2em;
-    text-align: right;
-    @include tablet-break {
+    justify-content: flex-end;
+    margin: 1em;
+
+    @include custom-break(800px) {
       display: none !important;
     }
+  }
+}
+
+// single blog page styles
+.blog {
+  margin: 2em 3em;
+
+  @include tablet-break {
+    margin: 3em 7em;
+  }
+  @include desktop-break {
+    margin: 6em 20em;
+  }
+
+  &-title {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: .3em;
+  }
+  &-created {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 1.3em;
+  }
+  &-content {
+    line-height: 30px;
   }
 }
 
