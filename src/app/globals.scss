@@ -468,8 +468,8 @@ header {
     grid-template-columns: 1fr 1fr;
     // gap: 1em;
     margin-top: var(--space-between-sections);
-    // justify-items: center;
-    // align-content: center;
+    justify-items: center;
+    // align-items: center;
     z-index: 1;
 
     // placement of qualification grid in parent grid
