@@ -1,24 +1,23 @@
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
-async function main() {
-
-  // ... you will write your Prisma Client queries here
-  // const allBlogs = await prisma.user.findMany()
-  // console.log(allBlogs)
-
-  // const allAccounts = await prisma.user.findMany()
-  // console.log(allAccounts)
+// async function main() {
   
-}
+// }
 
+// returns all blogs and all keywords associated
 export async function getAllBlogs() {
   const blogs = await prisma.blog.findMany({
+    include: {
+      blog_keyword: true,
+    },
+    where: { blog_is_published: true },
     orderBy: { blog_created: 'desc' }
   });
   return blogs;
 }
 
+// returns all keyword in alphebetical order
 export async function getAllKeywords() {
   const blogs = await prisma.keyword.findMany({
     orderBy: { keyword: 'desc' }
@@ -26,6 +25,7 @@ export async function getAllKeywords() {
   return blogs;
 }
 
+// returns a single blog
 export async function getBlogById(blogId) {
   const blog = await prisma.blog.findUnique({
     where: { blog_id: blogId }
@@ -60,13 +60,13 @@ export async function getBlogById(blogId) {
   // const deleteUser = table.delete()
   // const transaction = await $transaction([deletePosts, deleteUser])
 
-main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
+// main()
+//   .then(async () => {
+//     await prisma.$disconnect()
+//   })
 
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+//   .catch(async (e) => {
+//     console.error(e)
+//     await prisma.$disconnect()
+//     process.exit(1)
+//   })

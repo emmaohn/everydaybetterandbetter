@@ -568,14 +568,14 @@ header {
 // Blog card component styles
 .blog-card {
   display: flex;
-  margin: 80px 50px;
+  margin: 5em 2em;
   height: 100px;
   align-items: center;
   color: var(--navy);
 
   @include tablet-break {
     height: 150px;
-    margin: 50px 80px;
+    margin: 3em 5em;
   }
   @include desktop-break {
     height: 200px;
@@ -624,11 +624,18 @@ header {
   }
   &-keywords {
     display: none;
-    margin: 2em;
+    margin: 3em 2em;
 
     @include custom-break(800px) {
       display: block;
       position: sticky;
+      
+    }
+
+    &-prompt {
+      font-size: 1.4em;
+      margin-bottom: .8em;
+      font-weight: 500;
     }
   }
   &-filter {
@@ -640,6 +647,15 @@ header {
     @include custom-break(800px) {
       display: none !important;
     }
+  }
+}
+
+// blogspot keywords
+.keyword {
+  margin-bottom: .3em;
+
+  &-label {
+    margin-left: .2em;
   }
 }
 

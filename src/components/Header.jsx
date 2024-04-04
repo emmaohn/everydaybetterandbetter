@@ -46,7 +46,7 @@ export default function Header() {
           <Link href="../blogspot"><li>Blog</li></Link>
           <Link href="../lifecoaching"><li>Life coaching</li></Link>
           <Link href="../courses"><li>Courses</li></Link>
-          <a id="dropdown-link" href="../app/affiliate">
+          <a id="dropdown-link" href="../more">
             <li className="dropdown">
               More
               <i className="carrot fa-solid fa-angle-down"></i>
