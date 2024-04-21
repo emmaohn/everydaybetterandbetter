@@ -297,7 +297,6 @@ header {
     border-radius: 100%;
   }
   &-dark-circle {
-    // background-color: var(--gold-100);
     background-color: var(--gold-100);
     @include hw(70px);
     margin-left: 15px;
@@ -327,13 +326,14 @@ header {
   }
   .btn {
     margin-right: 1em;
+    text-align: center;
 
     // large styles
     @include desktop-break {
       margin-bottom: 1em;
     }
   }
-  // end component styles
+  // end cta component styles
 
   // grid alignment other styles
   &-parent-grid {

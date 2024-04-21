@@ -27,6 +27,7 @@ export default function Home() {
             iconCode="fa-regular fa-calendar-days"
             title="Ready to meet with a life coach?"
             button="Schedule a session"
+            link="https://everydaybetterandbetter.as.me/"
           />
           <CallToAction 
             iconCode="fa-solid fa-book"

@@ -38,13 +38,13 @@ export default function Header() {
         <ul className="links-mobile" id="links-mobile">
           <Link href="../"><li>Home</li></Link>
           <Link href="../blogspot"><li>Blog</li></Link>
-          <Link href="../lifecoaching"><li>Life coaching</li></Link>
+          <Link href="../coaching"><li>Coaching</li></Link>
           <Link href="../courses"><li>Courses</li></Link>
         </ul>
         <ul className="links-desktop">
           <Link href="../"><li>Home</li></Link>
           <Link href="../blogspot"><li>Blog</li></Link>
-          <Link href="../lifecoaching"><li>Life coaching</li></Link>
+          <Link href="../coaching"><li>Coaching</li></Link>
           <Link href="../courses"><li>Courses</li></Link>
           <a id="dropdown-link" href="../more">
             <li className="dropdown">

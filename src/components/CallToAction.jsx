@@ -1,5 +1,5 @@
 
-export default function CallToAction({ iconCode, title, button }) {
+export default function CallToAction({ iconCode, title, button, link }) {
   return (
     <div className="cta">
       <div className="cta-div1">
@@ -10,7 +10,7 @@ export default function CallToAction({ iconCode, title, button }) {
         </div>
       </div>
       <h2>{title}</h2>
-      <button className="btn btn-navy">{button}</button>
+      <a className="btn btn-navy" href={link}>{button}</a>
     </div>
   )
 };
