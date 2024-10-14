@@ -28,6 +28,10 @@
   overflow: hidden;
 }
 
+@mixin break($break-size) {
+  @media (min-width: $break-size) { @content; }
+}
+
 // use: @include tablet-break {}
 @mixin tablet-break {
   @media (min-width: 600px) { @content; }
@@ -56,11 +60,18 @@
   --headings: larger;
   --bigger-text: x-large;
   
-  --space-between-sections: 2em;
+  --space-between-sections: 5em;
   --small-margin: 0 2em;
   
   --body-font: 'Montserrat', sans serif, Georgia;
   --heading-font: 'Gilda Display', Georgia, Sans;
+
+  --xs: 400px;
+  --sm: 640px;
+  --md: 768px;
+  --lg: 1024px;
+  --xl: 1280px;
+  --2xl: 1536px;
 }
 
 /* margin, padding and border box resets */
@@ -74,7 +85,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   color: var(--navy);
-  background-color: var(--white);
+  // background-color: var(--white);
   font-family: var(--body-font);
 }
 
@@ -272,12 +283,6 @@ header {
   border: 2px solid var(--gold-100);
   margin: 1em;
   border-radius: 0px 15px;
-  
-  // large styles
-  @include desktop-break {
-    flex-direction: column;
-    // margin: 1em 5em;
-  }
 
   &-div1 {
     background-color: var(--gold-100);
@@ -333,78 +338,81 @@ header {
       margin-bottom: 1em;
     }
   }
+  @include desktop-break {
+    flex-direction: column;
+    // margin: 1em 5em;
+  }
   // end cta component styles
+}
 
-  // grid alignment other styles
-  &-parent-grid {
-    display: grid;
+// HERO SECTION
+.hero {
+  @include break(1024px) {
+    margin-bottom: 5em;
+  }
 
-    .cta-text, .cta-field-picture, .cta-grid {
-      grid-column: 1 / -1;
-    }
-    .cta-text {
-      grid-row: 1 / 2;
-      z-index: 2;
-      font-size: 2em;
-      text-align: center;
-      margin: 1em;
-
-      // font-size change
-      @include custom-break(450px) {
-        font-size: 2.8em;
-        margin: .5em;
-      }
-      @include tablet-break {
-        font-size: 3.5em;
-      }
-      @include custom-break(750px) {
-        font-size: 4em;
-        margin: 1em;
-      }
-      &-small {
-        display: block;
-        @include desktop-break {
-          display: none;
-        }
-      }
-      &-large {
-        display: none;
-        @include desktop-break {
-          display: block;
-        }
-      }
-    }
-    .cta-field-picture {
-      grid-row: 1 / 4;
-      img {
-        width: 100%;
-        -webkit-mask-image: linear-gradient(to top, transparent 20%, black 70%);
-        mask-image: linear-gradient(to top, transparent 20%, black 70%);
-        margin-bottom: -10px;
-      }
-    }
-    .cta-grid {
-      grid-row: 3 / 4;
-      z-index: 1;
-
-      @include desktop-break {
-        grid-row: 2 / 3;
-      }
+  // hero image
+  &-image {
+    img {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -5;
+      width: 100%;
+      -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.49148936170212765) 20%, rgba(255,255,255,0.9191489361702128) 40%, rgba(255,255,255,1) 50%);
+      mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.49148936170212765) 20%, rgba(255,255,255,0.9191489361702128) 40%, rgba(255,255,255,1) 50%);
+      margin-bottom: -10px;
     }
   }
-  &-grid {
+
+  &-text {
+    text-align: center;
+    font-size: 1.4em;
+    margin: 2.4em 0 3em 0;
+
+    @include break(400px) {
+      margin: 3.4em 0;
+    }
+    @include break(500px) {
+      margin: 2.4em 0;
+    }
+    // font-size change
+    @include break(640px) {
+      font-size: 2em;
+      margin: 2em 0;
+    }
+    @include break(768px) {
+      font-size: 3em;
+      margin: 1.4em 0;
+    }
+    @include break(800px) {
+      font-size: 3em;
+      margin: 1.6em 0;
+    }
+    @include break(1024px) {
+      margin: 1.4em 0;
+    }
+    @include break(1280px) {
+      margin: 1.6em 0;
+    }
+  }
+  
+  // call to action group styles start
+  .cta-group {
     display: grid;
 
     @include desktop-break {
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
+
 }
 
 // ABOUT ME SECTION
 .about-me {
   margin-top: var(--space-between-sections);
-
   :not(.about-me-color-block, img) {
     display: inline-block;
     margin: 0 2em;

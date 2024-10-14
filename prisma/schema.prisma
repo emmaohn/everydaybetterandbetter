@@ -17,13 +17,11 @@ model account {
 }
 
 model blog {
-  blog_id           Int            @id @default(autoincrement())
-  blog_title        String         @db.VarChar
-  blog_content      String
-  blog_created      DateTime       @default(now()) @db.Timestamptz(6)
-  blog_thumbnail    String         @db.VarChar
-  blog_is_published Boolean
-  blog_keyword      blog_keyword[]
+  blog_id      Int            @id @default(autoincrement())
+  blog_title   String         @db.VarChar
+  blog_content String
+  blog_created DateTime       @default(now()) @db.Date
+  blog_keyword blog_keyword[]
 }
 
 model blog_keyword {

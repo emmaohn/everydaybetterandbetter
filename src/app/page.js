@@ -5,42 +5,35 @@ import Why from "/src/components/Why";
 export default function Home() {
   return (
     <main>
-      <div className="cta-parent-grid">
-        <div className="cta-text">
-          <div className="cta-text-small">
-            <p>Ready to transform</p>
-            <p>your life into</p>
-            <p>something <span className="bold">better?</span></p>
-          </div>
-          <div className="cta-text-large">
-            <p>Ready to transform your life</p>
-            <p>into something <span className="bold">better?</span></p>
-          </div>
+      <picture className="hero-image">
+        <source media="(min-width:1024px)" srcSet="/field-large.jpg" />
+        <source media="(min-width:500px)" srcSet="/field-medium.jpg" />
+        <img src="/field-small.jpg" alt="Photo of a field" title="Photo by Hayden Scott on Unsplash at https://unsplash.com/photos/field-during-golden-hour-43NH8q0QNMo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" />  
+      </picture>
+      <section className="hero">
+        <div className="hero-text">
+          <p>Ready to transform your life</p>
+          <p>into something <span className="bold">better?</span></p>
         </div>
-        <picture className="cta-field-picture">
-          <source media="(min-width:1056px)" srcSet="/field-large.jpg" />
-          <source media="(min-width:600px)" srcSet="/field-medium.jpg" />
-          <img src="/field-small.jpg" alt="Photo of a field" title="Photo by Hayden Scott on Unsplash at https://unsplash.com/photos/field-during-golden-hour-43NH8q0QNMo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" />  
-        </picture>
-        <div className="cta-grid">
+        <div className="cta-group">
           <CallToAction 
-            iconCode="fa-regular fa-calendar-days"
-            title="Ready to meet with a life coach?"
-            button="Schedule a session"
-            link="https://everydaybetterandbetter.as.me/"
-          />
-          <CallToAction 
-            iconCode="fa-solid fa-book"
-            title="Not ready for coaching?"
-            button="Find solutions"
-          />
-          <CallToAction 
-            iconCode="fa-solid fa-pen-nib"
-            title="Looking for more helpful insights?"
-            button="Trudy's blog"
-          />
-        </div>
-      </div>
+              iconCode="fa-regular fa-calendar-days"
+              title="Ready to meet with a life coach?"
+              button="Schedule a session"
+              link="https://everydaybetterandbetter.as.me/"
+            />
+            <CallToAction 
+              iconCode="fa-solid fa-book"
+              title="Not ready for coaching?"
+              button="Find solutions"
+            />
+            <CallToAction 
+              iconCode="fa-solid fa-pen-nib"
+              title="Looking for more helpful insights?"
+              button="Trudy's blog"
+            />
+          </div>
+      </section>
       <section className="about-me">
         <div className="about-me-color-block">
           <h2 className="light-icon">Hi, I'm Trudy Johnson!</h2>
