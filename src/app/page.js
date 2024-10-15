@@ -44,11 +44,12 @@ export default function Home() {
         </div>
         <p>I specialize in teaching people how to overcome adversity, gain new perspectives, create a new story, solve problems, identify self-sabotaging thoughts and behaviors, and exercise self-mastery principles and techniques.</p>
         <p>Other titles that might resonate with you would be: Life Empowerment Coach, Spiritual Health Coach, Transformational Coach, Thought Coach, or Happiness Coach. If this is what you're hoping to achieve, then I might be the right coach for you.</p>
-        <p>I am a wife and mother of four wonderful human beings, three darling grandchildren, and one crazy little dog. They have been my greatest teachers and represent the best parts of me. Our lives have been filled with highs, lows, and everything in between, and it has been a meaningful journey."</p>
+        <p>I am a wife and mother of four wonderful human beings, four darling grandchildren, and one crazy little dog. They have been my greatest teachers and represent the best parts of me. Our lives have been filled with highs, lows, and everything in between, and it has been a meaningful journey."</p>
         <button className="btn btn-navy">Contact Me</button>
       </section>
-      <div className="qual-picture-grid">
-        <div className="qual-grid">
+      {/* <div className="qual-picture-grid"> */}
+      <section className="qualification">
+        <div className="qualification-grid">
           {/* development since 1990 */}
           <Qualification 
             number="1990"
@@ -73,12 +74,12 @@ export default function Home() {
             doesIncrement="false"
           />
         </div>
-        <picture className="qual-field-picture">
+        <picture className="qualification-image">
           <source media="(min-width:1000px)" srcSet="/field2-large.jpg" />
-          <source media="(min-width:600px)" srcSet="/field2-medium.jpg" />
+          <source media="(min-width:680px)" srcSet="/field2-medium.jpg" />
           <img src="/field2-small.jpg" alt="Photo of a field of flowers" title="Photo by Andreas Kretschmer on Unsplash at https://unsplash.com/photos/white-flowers-in-tilt-shift-lens-zUytXs3fusw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" />
         </picture>
-      </div>
+      </section>
       <div className="why-container">
         <h2 className="why-heading">Why Life Coaching?</h2>
         <div className="why-grid">

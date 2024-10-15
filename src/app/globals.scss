@@ -290,7 +290,7 @@ header {
     border-radius: 0px 0px 0px 12px;
 
     // large styles
-    @include desktop-break {
+    @include break(1024px) {
       @include hw(60px, 100%);
       border-radius: 0px 12px 0px 0px;
     }
@@ -308,7 +308,7 @@ header {
     margin-top: 10px;
 
     // large styles
-    @include desktop-break {
+    @include break(1024px) {
       margin: auto;
       margin-top: 1em;
     }
@@ -324,7 +324,7 @@ header {
     font-weight: 500;
 
     // large styles
-    @include desktop-break {
+    @include break(1024px) {
       margin: 1.2em;
       margin-top: 2.5em;
     }
@@ -334,13 +334,20 @@ header {
     text-align: center;
 
     // large styles
-    @include desktop-break {
+    @include break(1024px) {
       margin-bottom: 1em;
     }
   }
-  @include desktop-break {
+
+  @include break(640px) {
+    margin: 1em 3em;
+  }
+  @include break(768px) {
+    margin: 1em 4em;
+  }
+  @include break(1024px) {
     flex-direction: column;
-    // margin: 1em 5em;
+    margin: 1em 2em;
   }
   // end cta component styles
 }
@@ -403,7 +410,7 @@ header {
   .cta-group {
     display: grid;
 
-    @include desktop-break {
+    @include break(1024px) {
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
@@ -413,6 +420,7 @@ header {
 // ABOUT ME SECTION
 .about-me {
   margin-top: var(--space-between-sections);
+
   :not(.about-me-color-block, img) {
     display: inline-block;
     margin: 0 2em;
@@ -449,18 +457,24 @@ header {
 // QUALIFICATION COMPONENT
 .qual {
   // qualification component styles
-  @include hw(150px);
-  padding: 1em;
-  background-color: var(--gold-200);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include hw(160px);
+  padding: 0 .6em;
+  background-color: var(--gold-100);
   border-radius: 30px;
-  opacity: 80%;
+  opacity: 75%;
   text-align: center;
   color: var(--black);
-  // margin: 1em;
 
-  // @include custom-break(500px) {
-  //   margin: 2.5em;
-  // }
+  @include custom-break(640px) {
+    @include hw(180px);
+  }
+  @include custom-break(1024px) {
+    @include hw(200px);
+    padding: 0 2em;
+  }
 
   &-number {
     font-size: 3em;
@@ -468,45 +482,38 @@ header {
   &-content {
     font-size: 1em;
   }
+}
 
+.qualification {
+  margin-top: var(--space-between-sections);
+  
   // qualification component grid 
   &-grid {
     // mobile grid
     display: grid;
     grid-template-columns: 1fr 1fr;
-    // gap: 1em;
-    margin-top: var(--space-between-sections);
     justify-items: center;
-    // align-items: center;
-    z-index: 1;
+    row-gap: 20%;
+    margin: 0 auto;
+    margin-bottom: -16em;
 
-    // placement of qualification grid in parent grid
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-
-    @include tablet-break {
-      // tablet + desktop columns and rows
+    // tablet + desktop columns and rows
+    @include break(768px) {
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-row: 1 / 2;
     }
   }
-
-  // parent grid with picture and qualificaiton grid
-  &-picture-grid {
-    display: grid;
-    grid-template-rows: 80% 20%;
-
-    .qual-field-picture {
-      // placement of background picture in parent grid
-      grid-column: 1 / -1;
-      grid-row: 1 / -1;
-
-      img {
-        width: 100%;
-        -webkit-mask-image: linear-gradient(to bottom, transparent 20%, black 80%);
-        mask-image: linear-gradient(to bottom, transparent 20%, black 80%);
-        margin-bottom: -10px;
-      }
+  &-image {
+    img {
+      position: relative;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -5;
+      -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.49148936170212765) 20%, rgba(255,255,255,0.9191489361702128) 40%, rgba(255,255,255,1) 50%);
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.49148936170212765) 20%, rgba(255,255,255,0.9191489361702128) 40%, rgba(255,255,255,1) 50%);
+      margin-bottom: -10px;
     }
   }
 }
